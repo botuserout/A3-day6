@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #10081d;
+    background-image: radial-gradient(circle at 75% 50%, #6d153a 0%, #10081d 55%);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-text .squid {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 25vh;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 2rem;
+    white-space: nowrap;
+}
+
+.bg-text .game {
+    position: absolute;
+    bottom: -10vh;
+    left: 15%;
+    font-size: 35vh;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 2rem;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+    height: 100px;
+}
+
+.logo img {
+    height: 35px;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #a8a3b5;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.menu a:hover, .menu a.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+.menu a.active {
+    position: relative;
+}
+
+.menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.bar, .bar-short {
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.bar { width: 30px; transition: 0.3s; }
+.bar-short { width: 20px; align-self: flex-end; transition: 0.3s; }
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar-short {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.content {
+    display: flex;
+    padding: 0 80px;
+    min-height: calc(100vh - 100px);
+    position: relative;
+    z-index: 2;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 100px; /* Space for absolute cards on desktop */
+}
+
+.hero-logo img {
+    width: clamp(300px, 40vw, 450px);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+.desc {
+    color: #c9c3d4;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 16px;
+    max-width: 500px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.play-now {
+    background: linear-gradient(90deg, #d3205a, #d46f32);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(211, 32, 90, 0.4);
+}
+
+.watch-trailer {
+    background: transparent;
+    border: 1px solid #7d113a;
+    color: #fff;
+}
+
+.icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+}
+
+.play-outline {
+    background-color: transparent;
+}
+
+.play-now .icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-left: 8px solid #d3205a;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.watch-trailer .icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-left: 8px solid #fff;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.right {
+    flex: 1.2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-image {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.hero-image img {
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
+}
+
+.scroll-indicator {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.scroll-text {
+    transform: rotate(-90deg);
+    color: #a8a3b5;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(to bottom, #d3205a, transparent);
+}
+
+.socials {
+    position: absolute;
+    right: 0;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.socials svg {
+    width: 20px;
+    height: 20px;
+    fill: #d3205a;
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.socials svg:hover {
+    fill: #fff;
+}
+
+.cards-container {
+    position: absolute;
+    bottom: 40px;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    background: rgba(40, 15, 30, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 10;
+    width: max-content;
+    max-width: 90vw;
+}
+
+.card {
+    width: clamp(200px, 15vw, 260px);
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card .play-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.card:hover .play-btn {
+    background-color: rgba(211, 32, 90, 0.9);
+}
+
+.card .play-btn::after {
+    content: '';
+    border-left: 8px solid #fff;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    margin-left: 3px;
+}
+/* Responsiveness */
+@media (max-width: 1024px) {
+    nav {
+        padding: 30px 40px;
+    }
+    .content {
+        padding: 0 40px;
+    }
+    .hero-logo img {
+        width: 350px;
+    }
+    .bg-text .squid {
+        font-size: 15vh;
+    }
+    .bg-text .game {
+        font-size: 20vh;
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+    }
+    nav {
+        padding: 20px 40px;
+        height: auto;
+    }
+    .content {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+        min-height: auto;
+    }
+    .left {
+        padding-top: 0;
+        padding-bottom: 20px;
+        align-items: center;
+    }
+    .hero-logo img {
+        width: 80%;
+        max-width: 400px;
+        margin: 0 auto 20px;
+    }
+    .desc {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+    .buttons {
+        justify-content: center;
+    }
+    .right {
+        height: auto;
+        margin-top: 20px;
+        justify-content: center;
+    }
+    .hero-image {
+        height: 400px;
+        margin-right: 0;
+    }
+    .hero-image img {
+        height: 100%;
+    }
+    .scroll-indicator, .socials, .bg-text {
+        display: none;
+    }
+    .cards-container {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        transform: none;
+        margin: 40px 40px 40px auto;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 20px;
+        background: rgba(20, 10, 20, 0.8);
+    }
+    .menu.mobile-show {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(16, 8, 29, 0.95);
+        backdrop-filter: blur(20px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        gap: 30px;
+    }
+    .menu.mobile-show a {
+        font-size: 24px;
+    }
+    .hamburger {
+        z-index: 1001;
+    }
+    .card {
+        flex: 0 0 220px;
+        width: 220px;
+    }
+}
+
+@media (max-width: 650px) {
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo img {
+        width: 100%;
+    }
+    .card {
+        flex: 0 0 180px;
+        width: 180px;
+    }
+}

@@ -1,0 +1,444 @@
+:root {
+    --primary-color: #ffd700;
+    --bg-dark: #2a1b24;
+    --text-white: #ffffff;
+    --text-gray: #b0b0b0;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* ── Header ── */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Nav */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    height: 70px;
+    align-items: center;
+}
+
+nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 0.88rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    opacity: 0.85;
+    padding: 0 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: opacity 0.25s, border-color 0.25s;
+}
+
+nav ul li a:hover {
+    opacity: 1;
+}
+
+nav ul li a.active {
+    opacity: 1;
+    border-bottom-color: rgba(200, 150, 100, 0.7);
+    background: linear-gradient(to bottom, rgba(180, 130, 100, 0.25) 0%, transparent 100%);
+}
+
+.nav-arrow {
+    color: #e0b080;
+    margin-left: 3px;
+    font-size: 0.8rem;
+}
+
+/* Social icons */
+.social-links {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.social-links a {
+    color: #333;
+    font-size: 1rem;
+    background: #ffffff;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
+}
+
+/* ── Hero ── */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    max-height: 960px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)),
+        url('background.png');
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+}
+
+/* ── Text layer: split SHINSEI | gap | VILLAGE ── */
+.hero-text-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -54%);
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.text-left {
+    text-align: left;
+    flex: 0 0 auto;
+}
+
+.text-right {
+    text-align: right;
+    flex: 0 0 auto;
+}
+
+.subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(0.9rem, 1.3vw, 1.2rem);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+    color: #fff;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(60px, 8.5vw, 130px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 0.95;
+    color: #fff;
+    text-shadow:
+        0 0 40px rgba(255,255,255,0.15),
+        8px 8px 24px rgba(0,0,0,0.85);
+}
+
+.tagline {
+    font-family: var(--font-heading);
+    font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+}
+
+/* ── MINT NOW button ── */
+.cta-container {
+    position: absolute;
+    /* Sits just below the title text, above the character's hands */
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.mint-btn {
+    background-color: #f7d060;
+    color: #000;
+    border: none;
+    padding: 14px 72px;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.15rem;
+    letter-spacing: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+    border-radius: 3px;
+}
+
+/* Diagonal stripe accents on button sides */
+.mint-btn::before {
+    content: '';
+    position: absolute;
+    top: 12%;
+    left: 12px;
+    width: 18px;
+    height: 76%;
+    background-image: repeating-linear-gradient(
+        18deg,
+        transparent, transparent 5px,
+        #000 5px, #000 7px
+    );
+    opacity: 0.75;
+}
+
+.mint-btn::after {
+    content: '';
+    position: absolute;
+    top: 12%;
+    right: 12px;
+    width: 18px;
+    height: 76%;
+    background-image: repeating-linear-gradient(
+        -18deg,
+        transparent, transparent 5px,
+        #000 5px, #000 7px
+    );
+    opacity: 0.75;
+}
+
+.mint-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 14px 38px rgba(247, 208, 96, 0.45), inset 0 0 12px rgba(255,255,255,0.3);
+}
+
+/* ── Character ── */
+.hero-character {
+    position: absolute;
+    bottom: 0;          /* sits on the curved divider */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Height: tall enough that head is above the MINT button */
+    height: 82vh;
+    width: auto;
+    z-index: 5;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-character img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 30px rgba(255, 215, 0, 0.15))
+        drop-shadow(0 20px 60px rgba(0,0,0,0.9));
+    /* Fade legs into the curved divider */
+    -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+}
+
+/* ── Curved divider (dark half-ellipse at bottom of hero) ── */
+.curved-divider {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background-color: var(--bg-dark);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    z-index: 4;      /* above bg, below character (z=5) */
+}
+
+/* ── Vision Section ── */
+.vision-section {
+    padding: 90px 0 100px;
+    position: relative;
+    z-index: 5;
+    background-color: var(--bg-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 52px;
+}
+
+.line {
+    height: 1px;
+    width: 140px;
+    background-color: #4a4050;
+}
+
+.diamond {
+    width: 11px;
+    height: 11px;
+    background-color: var(--primary-color);
+    transform: rotate(45deg);
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    text-align: left;
+}
+
+.vision-text p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-gray);
+}
+
+.vision-text strong {
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+/* ── Footer ── */
+footer {
+    padding: 36px 40px;
+    text-align: center;
+    border-top: 1px solid #342030;
+    color: var(--text-gray);
+    font-size: 0.88rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+    .hero-text-layer {
+        padding: 0 24px;
+    }
+    .main-title {
+        font-size: clamp(52px, 7.5vw, 110px);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        height: auto;
+        padding: 14px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    nav ul {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 4px;
+        justify-content: center;
+    }
+    nav ul li {
+        height: auto;
+    }
+    nav ul li a {
+        height: auto;
+        padding: 6px 10px;
+        font-size: 0.82rem;
+    }
+    .hero-text-layer {
+        top: 44%;
+        padding: 0 16px;
+    }
+    .main-title {
+        font-size: clamp(38px, 10vw, 72px);
+    }
+    .cta-container {
+        top: 60%;
+    }
+    .hero-character {
+        height: 70vh;
+    }
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .container {
+        padding: 0 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: clamp(30px, 11vw, 52px);
+    }
+    .mint-btn {
+        padding: 12px 48px;
+        font-size: 1rem;
+    }
+    .hero-character {
+        height: 60vh;
+    }
+}
