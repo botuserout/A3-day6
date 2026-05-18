@@ -1,6 +1,6 @@
 #scroll{
     margin-top: 40px;
-    height: 20vh;
+    height: 12vh;
     width: 100%;
     white-space: nowrap;
     overflow-x: hidden;
@@ -19,11 +19,16 @@
 }
 #container img{
     display: inline;
-    margin: 50px 0px 50px 120px;
+    margin: 20px 0px 20px 40px;
     align-items:center ;
-
-    
-
+}
+@media (min-width: 768px) {
+    #scroll {
+        height: 20vh;
+    }
+    #container img {
+        margin: 50px 0px 50px 120px;
+    }
 }
 @keyframes scrol{
     from{
